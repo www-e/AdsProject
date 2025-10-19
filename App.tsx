@@ -80,7 +80,7 @@ const ImageUploader: React.FC<{ onUpload: (file: File) => void }> = ({ onUpload 
     };
     const onDrop = (e: React.DragEvent<HTMLLabelElement>) => {
         e.preventDefault();
-        if(e.dataTransfer.files && e.dataTransfer.files[0]){
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
             onUpload(e.dataTransfer.files[0]);
         }
     }
@@ -140,7 +140,7 @@ const PrepareStep: React.FC<{ originalImage: { url: string; } | null; preparedIm
             </div>
         );
     }
-    
+
     return (
         <div className="w-full max-w-5xl mx-auto flex flex-col items-center p-8">
             <h2 className="text-3xl font-bold text-white mb-2">Prepare Your Product</h2>
@@ -156,7 +156,7 @@ const PrepareStep: React.FC<{ originalImage: { url: string; } | null; preparedIm
                     <h3 className="text-xl font-semibold text-white mb-4">After</h3>
                     <div className="w-full h-80 bg-[rgba(var(--color-surface),0.5)] rounded-xl p-4 flex items-center justify-center bg-[url('data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E<path%20d%3D%22M1%202V0h1v1H0v1z%22%20fill-opacity%3D%22.1%22%2F%3E<%2Fsvg>')]">
                         {preparedImage ? (
-                             <img src={preparedImage.url} alt="Prepared Product" className="max-w-full max-h-full object-contain" />
+                            <img src={preparedImage.url} alt="Prepared Product" className="max-w-full max-h-full object-contain" />
                         ) : (
                             <div className="text-[rgb(var(--color-text-subtle))]">Result will appear here</div>
                         )}
@@ -164,7 +164,7 @@ const PrepareStep: React.FC<{ originalImage: { url: string; } | null; preparedIm
                 </div>
             </div>
             <div className="flex gap-4">
-                 <CustomButton onClick={onPrepare} disabled={hasPrepared} variant="secondary">
+                <CustomButton onClick={onPrepare} disabled={hasPrepared} variant="secondary">
                     <MagicIcon className="w-5 h-5" />
                     {hasPrepared ? 'Product Prepared' : 'Prepare Product'}
                 </CustomButton>
@@ -195,7 +195,7 @@ const DesignStep: React.FC<{
         { label: 'Vertical (4:5) - Instagram/Facebook Feed', value: '4:5' },
         { label: 'Pinterest (2:3)', value: '2:3' },
     ];
-    
+
     const creativeConcepts = [
         { title: "Deconstructed Delight", description: "A visually stunning flat-lay of your food product, deconstructed into its core ingredients (like floating chocolate chips, a swirl of caramel, fresh berries) arranged beautifully on a rustic wooden or marble surface. The lighting is soft and natural." },
         { title: "Zero-Gravity Treat", description: "The dessert and its various toppings (sprinkles, fruit, sauce) float weightlessly in a minimalist, pastel-colored room. A slow-motion camera pan captures the delicious details from every angle, creating a dreamlike, magical effect." },
@@ -206,9 +206,9 @@ const DesignStep: React.FC<{
         { title: "Dessert Drip Symphony", description: "A mesmerizing shot focusing on rich, glossy sauces (chocolate, caramel, berry coulis) being drizzled over the dessert in slow motion. The camera follows the drip as it elegantly coats the surface, emphasizing texture and indulgence." },
     ];
 
-    const handleSubmit = () => { if(scene.trim()){ onDesign(aspectRatio); } };
-    
-    const ModeButton: React.FC<{label: string, mode: 'manual' | 'ideas' | 'random'}> = ({label, mode}) => (
+    const handleSubmit = () => { if (scene.trim()) { onDesign(aspectRatio); } };
+
+    const ModeButton: React.FC<{ label: string, mode: 'manual' | 'ideas' | 'random' }> = ({ label, mode }) => (
         <button onClick={() => setInputMode(mode)} className={`w-full text-center px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-200 focus:outline-none ${inputMode === mode ? 'bg-[rgb(var(--color-primary-dark))] text-white' : 'bg-transparent text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-secondary))]'}`}>
             {label}
         </button>
@@ -221,20 +221,20 @@ const DesignStep: React.FC<{
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-8">
                 <div className="md:col-span-1 flex flex-col items-center">
                     <h3 className="text-xl font-semibold text-white mb-4">Your Product</h3>
-                     <div className="w-full h-80 bg-[rgba(var(--color-surface),0.5)] rounded-xl p-4 flex items-center justify-center bg-[url('data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E<path%20d%3D%22M1%202V0h1v1H0v1z%22%20fill-opacity%3D%22.1%22%2F%3E<%2Fsvg>')]">
+                    <div className="w-full h-80 bg-[rgba(var(--color-surface),0.5)] rounded-xl p-4 flex items-center justify-center bg-[url('data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E<path%20d%3D%22M1%202V0h1v1H0v1z%22%20fill-opacity%3D%22.1%22%2F%3E<%2Fsvg>')]">
                         <img src={productImage.url} alt="Prepared Product" className="max-w-full max-h-full object-contain" />
                     </div>
                 </div>
                 <div className="md:col-span-2 flex flex-col">
                     <label htmlFor="scene" className="text-xl font-semibold text-white mb-4">Scene Description</label>
                     <div className="flex space-x-1 mb-3 p-1 bg-[rgb(var(--color-surface))] rounded-lg border border-[rgb(var(--color-secondary))]">
-                       <ModeButton label="Write Manually" mode="manual" />
-                       <ModeButton label="Creative Concepts" mode="ideas" />
-                       <ModeButton label="Generate Randomly" mode="random" />
+                        <ModeButton label="Write Manually" mode="manual" />
+                        <ModeButton label="Creative Concepts" mode="ideas" />
+                        <ModeButton label="Generate Randomly" mode="random" />
                     </div>
                     <div className="flex-grow flex flex-col">
-                        <textarea id="scene" value={scene} onChange={(e) => setScene(e.target.value)} placeholder={ inputMode === 'manual' ? "e.g., On a marble podium floating in a galaxy..." : inputMode === 'ideas' ? "Click a concept below to use its description." : "Click 'Spark Creativity' to generate an idea here." } className="w-full flex-grow bg-[rgba(var(--color-surface),0.5)] border border-[rgb(var(--color-border))] rounded-lg p-4 text-white placeholder-[rgb(var(--color-text-subtle))] focus:ring-2 focus:ring-[rgb(var(--color-primary))] focus:border-[rgb(var(--color-primary))] transition-colors" rows={inputMode === 'ideas' ? 4 : 8} />
-                         {inputMode === 'ideas' && (
+                        <textarea id="scene" value={scene} onChange={(e) => setScene(e.target.value)} placeholder={inputMode === 'manual' ? "e.g., On a marble podium floating in a galaxy..." : inputMode === 'ideas' ? "Click a concept below to use its description." : "Click 'Spark Creativity' to generate an idea here."} className="w-full flex-grow bg-[rgba(var(--color-surface),0.5)] border border-[rgb(var(--color-border))] rounded-lg p-4 text-white placeholder-[rgb(var(--color-text-subtle))] focus:ring-2 focus:ring-[rgb(var(--color-primary))] focus:border-[rgb(var(--color-primary))] transition-colors" rows={inputMode === 'ideas' ? 4 : 8} />
+                        {inputMode === 'ideas' && (
                             <div className="mt-2 space-y-2 h-48 overflow-y-auto pr-2">
                                 {creativeConcepts.map((concept) => (
                                     <button key={concept.title} onClick={() => setScene(concept.description)} className="w-full text-left p-3 bg-[rgba(var(--color-secondary),0.5)] rounded-md hover:bg-[rgb(var(--color-secondary))] transition-colors text-[rgb(var(--color-text-muted))]">
@@ -244,13 +244,13 @@ const DesignStep: React.FC<{
                                 ))}
                             </div>
                         )}
-                        {inputMode === 'random' && ( <div className="mt-3 flex justify-center"> <CustomButton onClick={onGenerateRandomScene} variant="secondary"> Spark Creativity ✨ </CustomButton> </div> )}
+                        {inputMode === 'random' && (<div className="mt-3 flex justify-center"> <CustomButton onClick={onGenerateRandomScene} variant="secondary"> Spark Creativity ✨ </CustomButton> </div>)}
                     </div>
                     <h3 className="text-xl font-semibold text-white mt-6 mb-4">Ad Dimensions</h3>
                     <div className="relative w-full">
-                        <select 
-                            value={aspectRatio} 
-                            onChange={(e) => setAspectRatio(e.target.value)} 
+                        <select
+                            value={aspectRatio}
+                            onChange={(e) => setAspectRatio(e.target.value)}
                             className="w-full bg-[rgba(var(--color-surface),0.5)] border border-[rgb(var(--color-border))] rounded-lg p-4 pr-10 text-white focus:ring-2 focus:ring-[rgb(var(--color-primary))] focus:border-[rgb(var(--color-primary))] transition-colors appearance-none cursor-pointer"
                         >
                             {dimensions.map(dim => (
@@ -265,7 +265,7 @@ const DesignStep: React.FC<{
                     </div>
                 </div>
             </div>
-             <div className="flex gap-4">
+            <div className="flex gap-4">
                 <CustomButton onClick={onBack} variant="secondary">Back</CustomButton>
                 <CustomButton onClick={handleSubmit} disabled={!scene.trim()}>
                     <DesignIcon className="w-5 h-5" />
@@ -278,9 +278,9 @@ const DesignStep: React.FC<{
 
 const FinalizeStep: React.FC<{ adImage: { url: string }; videoPrompt: string | null; onGeneratePrompt: () => void; onStartOver: () => void; onRedesignFromPrepared: () => void; onRedesignFromFinal: () => void; }> = ({ adImage, videoPrompt, onGeneratePrompt, onStartOver, onRedesignFromPrepared, onRedesignFromFinal }) => {
     const [copied, setCopied] = useState(false);
-    
+
     const handleCopy = () => {
-        if(videoPrompt) {
+        if (videoPrompt) {
             navigator.clipboard.writeText(videoPrompt);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
@@ -295,7 +295,7 @@ const FinalizeStep: React.FC<{ adImage: { url: string }; videoPrompt: string | n
                 <div className="flex flex-col items-center">
                     <h3 className="text-xl font-semibold text-white mb-4">Generated Ad</h3>
                     <div className="w-full aspect-auto bg-[rgba(var(--color-surface),0.5)] rounded-xl p-2 flex items-center justify-center">
-                         <img src={adImage.url} alt="Generated CGI Ad" className="max-w-full max-h-full object-contain rounded-lg" />
+                        <img src={adImage.url} alt="Generated CGI Ad" className="max-w-full max-h-full object-contain rounded-lg" />
                     </div>
                 </div>
                 <div className="flex flex-col">
@@ -305,11 +305,11 @@ const FinalizeStep: React.FC<{ adImage: { url: string }; videoPrompt: string | n
                             <>
                                 <p>{videoPrompt}</p>
                                 <button onClick={handleCopy} className="absolute top-2 right-2 p-2 rounded-md bg-[rgb(var(--color-secondary))] hover:bg-[rgb(var(--color-secondary-hover))] text-[rgb(var(--color-text-muted))] transition-colors">
-                                    {copied ? <CheckIcon className="w-5 h-5 text-[rgb(var(--color-success))]"/> : <CopyIcon className="w-5 h-5"/>}
+                                    {copied ? <CheckIcon className="w-5 h-5 text-[rgb(var(--color-success))]" /> : <CopyIcon className="w-5 h-5" />}
                                 </button>
                             </>
-                        ): (
-                             <div className="flex flex-col items-center justify-center h-full text-center">
+                        ) : (
+                            <div className="flex flex-col items-center justify-center h-full text-center">
                                 <p className="text-[rgb(var(--color-text-muted))] mb-4">Click the button to generate a descriptive prompt for AI video tools!</p>
                                 <CustomButton onClick={onGeneratePrompt} variant="secondary">
                                     Generate Video Prompt
@@ -319,7 +319,7 @@ const FinalizeStep: React.FC<{ adImage: { url: string }; videoPrompt: string | n
                     </div>
                 </div>
             </div>
-             <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
                 <CustomButton onClick={onRedesignFromPrepared} variant="secondary">Redesign with Product</CustomButton>
                 <CustomButton onClick={onRedesignFromFinal} variant="secondary">Iterate on this Ad</CustomButton>
                 <CustomButton onClick={onStartOver} variant="primary">Start Over</CustomButton>
@@ -350,7 +350,7 @@ const HistoryView: React.FC<{ history: HistoryItem[], onSelectItem: (item: Histo
                 {history.map(item => (
                     <button key={item.id} onClick={() => onSelectItem(item)} className="block group rounded-lg overflow-hidden bg-[rgba(var(--color-surface),0.5)] border border-[rgb(var(--color-secondary))] hover:border-[rgb(var(--color-primary))] transition-all duration-300 shadow-lg">
                         <div className="aspect-square overflow-hidden">
-                             <img src={item.finalAd.url} alt="Generated Ad Thumbnail" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+                            <img src={item.finalAd.url} alt="Generated Ad Thumbnail" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                         </div>
                         <div className="p-4 text-left">
                             <p className="text-sm text-[rgb(var(--color-text-muted))]">{new Date(item.timestamp).toLocaleString()}</p>
@@ -367,7 +367,7 @@ const HistoryDetailModal: React.FC<{ item: HistoryItem, onClose: () => void }> =
     return (
         <div className="fixed inset-0 bg-[rgba(var(--color-background),0.8)] backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={onClose}>
             <div className="bg-[rgb(var(--color-surface))] w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col relative border border-[rgb(var(--color-secondary))]" onClick={(e) => e.stopPropagation()}>
-                <button onClick={onClose} className="absolute top-3 right-3 p-2 text-[rgb(var(--color-text-muted))] hover:text-white transition-colors rounded-full bg-[rgba(var(--color-background),0.5)] z-10"><CloseIcon className="w-6 h-6"/></button>
+                <button onClick={onClose} className="absolute top-3 right-3 p-2 text-[rgb(var(--color-text-muted))] hover:text-white transition-colors rounded-full bg-[rgba(var(--color-background),0.5)] z-10"><CloseIcon className="w-6 h-6" /></button>
                 <div className="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto">
                     <div>
                         <h3 className="text-xl font-semibold text-white mb-4">Generated Ad</h3>
@@ -378,11 +378,11 @@ const HistoryDetailModal: React.FC<{ item: HistoryItem, onClose: () => void }> =
                             <h3 className="text-xl font-semibold text-white mb-2">Scene Description</h3>
                             <p className="bg-[rgba(var(--color-background),0.5)] p-3 rounded-md text-[rgb(var(--color-text-muted))]">{item.sceneDescription}</p>
                         </div>
-                         <div>
+                        <div>
                             <h3 className="text-xl font-semibold text-white mb-2">Video Animation Prompt</h3>
                             <p className="bg-[rgba(var(--color-background),0.5)] p-3 rounded-md text-[rgb(var(--color-text-muted))]">{item.videoPrompt || 'Not generated.'}</p>
                         </div>
-                         <div>
+                        <div>
                             <h3 className="text-xl font-semibold text-white mb-2">Created</h3>
                             <p className="bg-[rgba(var(--color-background),0.5)] p-3 rounded-md text-[rgb(var(--color-text-muted))]">{new Date(item.timestamp).toLocaleString()}</p>
                         </div>
@@ -410,7 +410,7 @@ export default function App() {
     const [hasPrepared, setHasPrepared] = useState(false);
 
     useEffect(() => { setHistory(getHistory()); }, []);
-    
+
     const sceneDescriptionRef = useRef('');
 
     const handleUpload = useCallback(async (file: File) => {
@@ -456,7 +456,7 @@ export default function App() {
             const adData = await createCgiAd(preparedImage.data, preparedImage.mimeType, scene, aspect);
             const mimeType = 'image/jpeg';
             const url = `data:${mimeType};base64,${adData}`;
-            
+
             const newHistoryItem: NewHistoryItemData = {
                 finalAd: { url },
                 sceneDescription: scene,
@@ -474,7 +474,7 @@ export default function App() {
             setIsLoading(false);
         }
     }, [preparedImage, scene]);
-    
+
     const handleGeneratePrompt = useCallback(async () => {
         if (!finalAd) return;
         setError(null);
@@ -490,7 +490,7 @@ export default function App() {
             setHistory(updatedHistory);
             saveHistory(updatedHistory);
 
-        } catch(err) {
+        } catch (err) {
             console.error(err);
             setError(err instanceof Error ? err.message : "An unknown error occurred generating the prompt.");
         } finally {
@@ -506,7 +506,7 @@ export default function App() {
         try {
             const randomScene = await generateRandomScene(preparedImage.data, preparedImage.mimeType);
             setScene(randomScene.trim());
-        } catch(err) {
+        } catch (err) {
             console.error(err);
             setError(err instanceof Error ? err.message : "An unknown error occurred while generating a scene.");
         } finally {
@@ -542,7 +542,7 @@ export default function App() {
         setVideoPrompt(null);
         setHasPrepared(true); // Since we are using a final ad, it is considered "prepared"
     };
-    
+
     const handleClearHistory = () => {
         if (window.confirm("Are you sure you want to delete all your project history? This action cannot be undone.")) {
             clearHistory();
@@ -562,7 +562,7 @@ export default function App() {
                 return <PrepareStep originalImage={originalImage} preparedImage={preparedImage} onPrepare={handlePrepare} onNext={() => setStep(Step.DESIGN)} onUpload={handleUpload} hasPrepared={hasPrepared} />;
         }
     };
-    
+
     const NavButton = ({ currentView, targetView, setView, children }: { currentView: string, targetView: string, setView: (v: 'studio' | 'history') => void, children: React.ReactNode }) => (
         <button onClick={() => setView(targetView as 'studio' | 'history')} className={`px-4 py-2 rounded-md font-semibold transition-colors ${currentView === targetView ? 'bg-[rgb(var(--color-primary-dark))] text-white' : 'bg-[rgb(var(--color-secondary))] text-[rgb(var(--color-text-muted))] hover:bg-[rgb(var(--color-secondary-hover))]'}`}>
             {children}
@@ -575,8 +575,8 @@ export default function App() {
                 <header className="text-center mb-8">
                     <div className="absolute top-4 right-4 z-10">
                         <div className="flex space-x-2 bg-[rgb(var(--color-surface))] p-1 rounded-lg border border-[rgb(var(--color-secondary))]">
-                           <NavButton currentView={view} targetView="studio" setView={setView}>Studio</NavButton>
-                           <NavButton currentView={view} targetView="history" setView={setView}>History</NavButton>
+                            <NavButton currentView={view} targetView="studio" setView={setView}>Studio</NavButton>
+                            <NavButton currentView={view} targetView="history" setView={setView}>History</NavButton>
                         </div>
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-[rgb(var(--color-purple-light))] to-[rgb(var(--color-pink))] text-transparent bg-clip-text">
@@ -587,22 +587,58 @@ export default function App() {
                 <main className="flex-grow flex flex-col items-center justify-center">
                     <div className="w-full bg-[rgba(var(--color-surface),0.3)] rounded-2xl shadow-2xl shadow-black/20 border border-[rgb(var(--color-secondary))]">
                         {view === 'studio' && <StepIndicator currentStep={step} />}
-                        
+
                         {error && (
                             <div className="bg-[rgba(var(--color-error),0.2)] border border-[rgb(var(--color-error))] text-[rgb(var(--color-error))] p-4 rounded-lg m-6 text-center">
                                 <strong>Error:</strong> {error}
                             </div>
                         )}
-                        
+
                         {view === 'studio' ? renderStudio() : <HistoryView history={history} onSelectItem={setSelectedHistoryItem} onClearHistory={handleClearHistory} />}
                     </div>
                 </main>
-                 {isLoading && <LoadingOverlay message={loadingMessage} />}
-                 {selectedHistoryItem && <HistoryDetailModal item={selectedHistoryItem} onClose={() => setSelectedHistoryItem(null)} />}
-                 <footer className="text-center text-[rgb(var(--color-text-subtle))] py-6 mt-8">
-                    <p>Powered by Google Gemini</p>
-                    <p className="text-xs mt-2">By Omar Ashraf - Egypt - 01154688628 , thx to Ahmed Elgohary</p>
+                {isLoading && <LoadingOverlay message={loadingMessage} />}
+                {selectedHistoryItem && <HistoryDetailModal item={selectedHistoryItem} onClose={() => setSelectedHistoryItem(null)} />}
+                <footer className="bg-gradient-to-b from-neutral-900 to-black text-center text-gray-300 py-8 mt-12 rounded-t-xl">
+                    <p className="text-lg font-medium mb-2">
+                        Powered by <span className="text-white">Google Gemini</span>
+                    </p>
+
+                    <p className="text-sm mb-6">
+                        Made with ❤️ in Egypt by{' '}
+                        <a
+                            href="https://yourportfolio.link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-blue-400 transition-colors font-semibold"
+                        >
+                            Omar Ashraf
+                        </a>{' '}
+                        — Reach me at <a href="tel:01154688628" className="hover:underline">01154688628</a>
+                    </p>
+
+                    <div className="flex justify-center gap-4">
+                        <a
+                            href="https://omar-flax.vercel.app/"
+                            className="px-6 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-500 transition-all shadow-md"
+                        >
+                            Let’s Work Together
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/omar-ashraf-176790262/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-2 border border-gray-500 rounded-full hover:bg-gray-800 transition-all"
+                        >
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <p className="text-xs text-gray-500 mt-6">
+                        Thanks to Ahmed Elgohary for the inspiration ✨
+                    </p>
                 </footer>
+
             </div>
         </div>
     );

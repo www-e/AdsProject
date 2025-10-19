@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI CGI Ad Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-primary: 139 92 246; /* purple-500 */
+        --color-primary-dark: 124 58 237; /* purple-600 */
+        --color-primary-darker: 109 40 217; /* purple-700 */
+        --color-secondary: 51 65 85; /* slate-700 */
+        --color-secondary-hover: 71 85 105; /* slate-600 */
+        --color-background: 15 23 42; /* slate-900 */
+        --color-surface: 30 41 59; /* slate-800 */
+        --color-text-primary: 255 255 255;
+        --color-text-muted: 148 163 184; /* slate-400 */
+        --color-text-subtle: 100 116 139; /* slate-500 */
+        --color-border: 100 116 139; /* slate-600 */
+        --color-pink: 236 72 153; /* pink-500 */
+        --color-purple-light: 192 132 252; /* purple-400 */
+        --color-error: 239 68 68; /* red-500 */
+        --color-success: 74 222 128; /* green-400 */
+        --color-disabled: 107 114 128; /* gray-500 */
+        --color-disabled-surface: 31 41 55; /* slate-800 */
+        --color-disabled-text: 100 116 139; /* slate-500 */
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: rgb(var(--color-background));
+        color: rgb(var(--color-text-primary));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
